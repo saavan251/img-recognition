@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+  </head>
+
+  <body>
+
+    <!--div style="margin: 4% auto 3% 20%;"-->
+    <div style="margin: 2% 30% 2% 30%;">
+      <marquee behavior="alternate"><h1>Predictions</h1></marquee>
+    </div>
+
+    {% for key in rng %}
+      <table style="margin: auto 5% 2% 5%;">
+        <tr>
+          <td >
+            <img src=" {{url_for('send_image', filename=image_name[key])}}" height="100%" width="100%">
+          </td>
+          <td >
+            {% for val in preds[key] %}
+              <ol style="font-size:100%"> {{ val }}  </ol>
+              {% endfor %}
+          </td>
+          <td style = "border: 1px solid black;text-align: left;padding:5%;">
+            <h4 style="color:red;"> {{image_name[key]}} </h4>
+            <h3 style="color:green;"> {{preds[key][0]}}</h3>
+          </td>
+        </tr>
+      </table>
+    {% endfor %}
+
+  </body>
+</html>

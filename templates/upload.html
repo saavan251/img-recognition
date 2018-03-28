@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div style="margin: 2% 25% auto 25%;color:#f46842;">
+      <center>
+        <h1 style="font-size:400%">IMAGE CLASSIFIER</h1>
+      </center>
+    </div>
+    <div style="margin: auto 15% 2% 15%;color:#41b2f4;">
+      <marquee ><h1>Upload images for classification (single/multiple)</h1></marquee>
+    </div>
+    <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+      <!--center style="margin:8% auto auto auto;"><h1 ><strong>Upload images for classification (single/multiple)</strong><br></h1></center-->
+      <input id="file-picker" type="file" name="file" accept="image/*" multiple  style="margin:2% 5% auto 40%">
+      <div id="msg" style="margin:2% 5% auto 40%;color:#ca41f4"></div>
+      <input type="submit" value="Upload!" id="upload-button" style="margin:2% 5% auto 42%">
+    </form>
+
+  </body>
+  <script>
+      $("#file-picker").change(function(){
+          var input = document.getElementById('file-picker');
+          for (var i=0; i<input.files.length; i++)
+          {
+              var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+              if ((ext == 'jpg') || (ext == 'png'))
+              {
+                list = "<li>" +input.files[i].name + "</li>"
+                  $("#msg").append(list)
+              }
+              else
+              {
+                  $("#msg").text("Files are NOT supported")
+                  document.getElementById("file-picker").value ="";
+              }
+          }
+      } );
+  </script>
+</html>
