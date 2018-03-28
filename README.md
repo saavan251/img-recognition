@@ -5,17 +5,17 @@ Flask framework is used for building server.
 
 Dependencies installation (using conda):
 
-conda install flask
-conda install numpy
-conda install Pillow
-conda install tensorflow
+  conda install flask
+  conda install numpy
+  conda install Pillow
+  conda install tensorflow
 
 Dependencies installation (using pip):
 
-pip install flask
-pip install numpy
-pip install Pillow
-pip install tensorflow
+  pip install flask
+  pip install numpy
+  pip install Pillow
+  pip install tensorflow
 
 Running :-
 
